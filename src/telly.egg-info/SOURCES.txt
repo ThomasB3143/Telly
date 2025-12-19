@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+src/telly/__init__.py
+src/telly/cli.py
+src/telly/engine.py
+src/telly/rofi.py
+src/telly/state.py
+src/telly.egg-info/PKG-INFO
+src/telly.egg-info/SOURCES.txt
+src/telly.egg-info/dependency_links.txt
+src/telly.egg-info/entry_points.txt
+src/telly.egg-info/top_level.txt

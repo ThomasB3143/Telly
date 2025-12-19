@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: telly
+Version: 0.1.0
+Summary: Single-button cyclic launcher with rofi backend
+License: MIT
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+# Telly
+An Arch Linux package providing single-input cyclic launchers with timeout-based selection. Similar to using the buttons on the side of your TV when you've lost the remote.
