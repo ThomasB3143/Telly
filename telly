@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+TELLY_ROOT="/usr/share/telly"
+TELLY_USER_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/telly"
+
+# Load libraries
+source "$TELLY_ROOT/lib/utils.sh"
+source "$TELLY_ROOT/lib/launcher.sh"
+
+cmd="${1:-}"
+
+case "$cmd" in
+  run)
+    launcher="${2:-}"
+    [[ -z "$launcher" ]] && die 'missing launcher name'
+    launcher_dir="$(find_launcher "$launcher")"
+    echo "Running launcher: $launcher"
+    ;;
+  list)
+    echo "Not implemented"
+    ;;
+  init)
+    echo "Not implemented"
+    ;;
+  *)
+    echo "Usage: telly run <launcher>"
+    ;;
+esac
