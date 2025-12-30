@@ -3,8 +3,8 @@
 find_launcher() {
     # Checks if a launcher directory exists
     local name="$1"
-    local user_path="$TELLY_USER_CONFIG/launchers/$name"
-    local system_path="$TELLY_ROOT/launchers/$name"
+    local user_path="$TEEVEE_USER_CONFIG/launchers/$name"
+    local system_path="$TEEVEE_ROOT/launchers/$name"
 
     if [[ -d "$user_path" ]]; then
         validate_launcher "$user_path"

@@ -2,6 +2,6 @@
 
 die() {
     # Prints error message and exits
-    echo "telly: $*" >&2
+    echo "teevee: $*" >&2
     exit 1
 }

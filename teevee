@@ -5,28 +5,28 @@ set -euo pipefail
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
 # Make directory for state if none
-STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/telly"
+STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/teevee"
 mkdir -p "$STATE_DIR"
 
 # Development or installed paths
 if [[ -d "$SCRIPT_DIR/lib" ]]; then
     # Running from project directory
-    TELLY_ROOT="$SCRIPT_DIR"
+    TEEVEE_ROOT="$SCRIPT_DIR"
 else
     # Running from installed location
-    TELLY_ROOT="/usr/share/telly"
+    TEEVEE_ROOT="/usr/share/teevee"
 fi
 
-TELLY_USER_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/telly"
+TEEVEE_USER_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/teevee"
 
 # Load libraries
-source "$TELLY_ROOT/lib/utils.sh"
-source "$TELLY_ROOT/lib/launcher.sh"
-source "$TELLY_ROOT/lib/options.sh"
-source "$TELLY_ROOT/lib/state.sh"
-source "$TELLY_ROOT/lib/timer.sh"
-source "$TELLY_ROOT/lib/config.sh"
-source "$TELLY_ROOT/lib/dunst.sh"
+source "$TEEVEE_ROOT/lib/utils.sh"
+source "$TEEVEE_ROOT/lib/launcher.sh"
+source "$TEEVEE_ROOT/lib/options.sh"
+source "$TEEVEE_ROOT/lib/state.sh"
+source "$TEEVEE_ROOT/lib/timer.sh"
+source "$TEEVEE_ROOT/lib/config.sh"
+source "$TEEVEE_ROOT/lib/dunst.sh"
 
 cmd="${1:-}"
 
@@ -80,6 +80,6 @@ case "$cmd" in
         echo "Not implemented"
         ;;
     *)
-        echo "Usage: telly run <launcher>"
+        echo "Usage: teevee run <launcher>"
         ;;
 esac

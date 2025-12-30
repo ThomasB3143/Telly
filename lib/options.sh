@@ -20,7 +20,7 @@ execute_option() {
     local option="$1"
 
     if [[ ! -x "$option" ]]; then
-        echo "telly: option not executable $option" >&2
+        echo "teevee: option not executable $option" >&2
         return 1
     fi
 
