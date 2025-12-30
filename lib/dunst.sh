@@ -3,7 +3,7 @@
 show_menu_notification() {
     local launcher="$1"
     local text="$2"
-
+    local index = "$3"
     local id
     id=$(dunstify \
         -p \
@@ -29,7 +29,6 @@ close_menu_notification() {
         rm -f "$id_file"
     fi
 }
-
 
 notification_id_file() {
     echo "$STATE_DIR/$1.notify.id"

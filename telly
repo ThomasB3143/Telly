@@ -55,8 +55,21 @@ case "$cmd" in
         now="$(date +%s)"
         save_state "$state_file" "$INDEX" "$now"
         
+        # Form menu text
+        menu_text="${TITLE}"$'\n'
+        for i in "${!OPTIONS[@]}"; do
+            if (( i == INDEX )); then
+                menu_text+="${HOVER_OPTIONS[i]}"$'\n'
+            else
+                menu_text+="${OPTIONS[i]}"$'\n'
+            fi
+        done
+        # Remove trailing newline
+        menu_text="${menu_text%$'\n'}"
+
         # Show notification and store ID
-        nid="$(show_menu_notification "$launcher" "${options[$INDEX]}")"
+        nid="$(show_menu_notification "$launcher" "$menu_text" "$INDEX")"
+
         echo "$nid" >"$(notification_id_file "$launcher")"
 
         start_timer "$launcher" "$TIMEOUT_MS" "${options[$INDEX]}"
