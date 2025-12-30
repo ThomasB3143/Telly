@@ -6,8 +6,6 @@ You bind a key to a launcher, press it to open a menu, press it again to cycle t
 
 teevee is written in Bash and integrates with **dunst** for notifications.
 
----
-
 ## Features
 
 - Single-button UI (perfect for keyboard-only or minimal setups)
@@ -23,14 +21,17 @@ teevee is written in Bash and integrates with **dunst** for notifications.
 
 ## Setting up your first launcher
 
-1. Create a "teevee" config directory
-2. Create a subdirectory named as your launcher title
-3. Create a launcher.conf (see [this example](https://github.com/ThomasB3143/teevee/blob/main/examples/launchers/mylauncher/launcher.conf))
-4. Create an "options/" subdirectory
-5. Insert a script per option (note that scripts are read in alphabetical order)
-6. Bind a key to "teevee run <launcher-title>
+1. Initialise your teevee config directory with "teevee init"
+2. Initialise your launcher directory with "teevee init <launcher_name>"
+3. Insert a script per option in .config/teevee/<launcher_name>/options/ (note that scripts are read in alphabetical order)
+4. Customise your launcher.conf
+5. Bind a key to "teevee run <launcher-name>
 
 Now you can repeat steps 2-6 for as many launchers as you'd like!
+
+## Additional operations
+
+- teevee list: lists all launcher directories found in .config/teevee
 
 ## Launcher ideas
 

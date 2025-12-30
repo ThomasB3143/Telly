@@ -28,8 +28,42 @@ source "$TEEVEE_ROOT/lib/timer.sh"
 source "$TEEVEE_ROOT/lib/config.sh"
 source "$TEEVEE_ROOT/lib/dunst.sh"
 
-cmd="${1:-}"
+# Parse flags
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -h|--help)
+            print_help
+            exit 0
+            ;;
+        -v|--version)
+            echo "telly 0.2.0"
+            exit 0
+            ;;
+        -V|--valid)
+            shift
+            if [[ $# -eq 0 || "$1" == -* ]]; then
+                die "-V/--valid requires a launcher name"
+            fi
+            find_launcher "$1"
+            echo "$1 is a valid launcher"
+            exit 0
+            ;;
+        --)
+            shift
+            break
+            ;;
+        -*)
+            die "Unknown option $1" 
+            ;;
+        *)
+            break
+            ;;
+    esac
+done
 
+
+# Interpret command
+cmd="${1:-}"
 case "$cmd" in
     run)
         launcher="${2:-}"
@@ -74,10 +108,16 @@ case "$cmd" in
         start_timer "$launcher" "$TIMEOUT_MS" "${options[$INDEX]}"
         ;;
     list)
-        echo "Not implemented"
+        list_launchers
         ;;
     init)
-        echo "Not implemented"
+        shift
+        # Instantiate .config/teevee directory
+        create_config
+        if [[ $# == 1 ]]; then
+            # Create a launcher if the user specifies
+            create_launcher "$1"
+        fi
         ;;
     *)
         echo "Usage: teevee run <launcher>"

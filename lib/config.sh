@@ -17,3 +17,11 @@ load_launcher_config() {
         source "$config_file"
     fi
 }
+
+create_config() {
+    local config_dir="$TEEVEE_USER_CONFIG"
+
+    mkdir -p "$config_dir"
+
+    echo "Initialised config directory at $config_dir"
+}
