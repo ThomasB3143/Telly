@@ -36,9 +36,7 @@ create_config() {
     echo "Initialised config directory at $config_dir"
 }
 
-validate_config() (
-    # Separate subshell for validation
-    set -euo pipefail
+validate_config() {
 
     local launcher_dir="$1"
     local options_dir="${launcher_dir}/options"
@@ -136,4 +134,4 @@ validate_config() (
     if (( error_found )); then
         exit 1
     fi
-)
+}
