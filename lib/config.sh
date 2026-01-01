@@ -5,6 +5,7 @@ load_launcher_config() {
     local config_file="$launcher_dir/launcher.conf"
 
     # Default values
+    TITLE="${launcher_dir}"
     TIMEOUT_MS=1000
 
     # Get options from options/
@@ -16,16 +17,18 @@ load_launcher_config() {
     OPTION_ORDER=("${OPTION_ORDER[@]##*/}")
     unset IFS
 
-    OPTIONS=$OPTION_ORDER
-    HOVER_OPTIONS=("${OPTIONS[@]/#/ * }")
-    TITLE="${launcher_dir}"
-    SELECTED_TEXT=$OPTIONS
-
-
     # Source launcher.conf if exists
     if [[ -f "$config_file" ]]; then
         source "$config_file"
     fi
+
+    # Get undefined derived values
+    [[ -v OPTIONS ]] \
+        || OPTIONS=(${OPTION_ORDER[@]})
+    [[ -v HOVER_OPTIONS ]] \
+        || HOVER_OPTIONS=("${OPTIONS[@]/#/ * }")
+    [[ -v SELECTED_TEXT ]] \
+        || SELECTED_TEXT=$OPTIONS
 }
 
 create_config() {

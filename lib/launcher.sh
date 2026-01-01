@@ -88,8 +88,15 @@ TIMEOUT_MS=2000
 # DEFAULT: Name of the launcher directory
 TITLE="Options:"
 
-# The name of each option, in the same order as the option scripts
-# Option scripts are sorted alphabetically by filename
+# The order in which options appear in the launcher
+# DEFAULT: Alphabetically ordered
+OPTION_ORDER=(
+    "opt1.sh"
+    "opt2.sh"
+    "opt3.sh"
+)
+
+# The name of each option, in the same order as the option scripts in OPTION ORDER
 # DEFAULT: Option names are set to their filepath
 OPTIONS=(
     "Option 1"

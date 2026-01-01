@@ -89,7 +89,6 @@ case "$cmd" in
         # Save the new state
         now="$(date +%s)"
         save_state "$state_file" "$INDEX" "$now"
-        
         # Form menu text
         menu_text="${TITLE}"$'\n'
         for i in "${!OPTIONS[@]}"; do
