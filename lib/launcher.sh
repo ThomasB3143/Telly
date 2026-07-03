@@ -114,7 +114,6 @@ HOVER_OPTIONS=(
     "This is option 1"
     "Hovering over option 2!"
     " * Option 3"
-    "Option 4"
 )
 
 # The text content of the notification raised on selection of each option
