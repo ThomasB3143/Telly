@@ -28,7 +28,7 @@ load_launcher_config() {
     [[ -v HOVER_OPTIONS ]] \
         || HOVER_OPTIONS=("${OPTIONS[@]/#/ * }")
     [[ -v SELECTED_TEXT ]] \
-        || SELECTED_TEXT=$OPTIONS
+        || SELECTED_TEXT=("${OPTIONS[@]}")
 }
 
 create_config() {
@@ -65,7 +65,7 @@ validate_config() {
     local num_options
 
     # Number of options is the length of OPTION_ORDER
-    # If undefined, default to the number of files in options/ 
+    # If undefined, default to the number of files in options/
     if [[ -v OPTION_ORDER ]]; then
         num_options="${#OPTION_ORDER[@]}"
 

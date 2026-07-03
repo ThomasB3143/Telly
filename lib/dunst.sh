@@ -18,7 +18,7 @@ show_menu_notification() {
     fi
 
     if [[ -f "$id_file" ]]; then
-        # Replace existing notification by ID (icon WILL update)
+        # Replace existing notification by ID
         id=$(dunstify \
             -p \
             -r "$(cat "$id_file")" \
